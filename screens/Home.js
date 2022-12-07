@@ -15,6 +15,7 @@ const Home = () => {
       <CategoryHeaderSection />
 
       <ScrollView></ScrollView>
+      <ScrollView></ScrollView>
     </View>
   );
 };
