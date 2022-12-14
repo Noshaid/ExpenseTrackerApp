@@ -4,9 +4,14 @@ import React, { useState } from "react";
 import { COLORS, FONTS, SIZES, icons } from "../constants";
 import categoriesData from "../Model/CategoryData";
 
-const CategoryHeaderSection = () => {
+const CategoryHeaderSection = ({ onPress }) => {
   const [viewMode, setViewMode] = useState("charts");
   const [categories, setCategories] = useState(categoriesData);
+
+  const setCategoriesModeView = (mode) => {
+    setViewMode(mode);
+    onPress(mode);
+  };
 
   return (
     <View
@@ -36,7 +41,7 @@ const CategoryHeaderSection = () => {
             width: 50,
             borderRadius: 25,
           }}
-          onPress={() => setViewMode("chart")}
+          onPress={() => setCategoriesModeView("chart")}
         >
           <Image
             source={icons.chart}
@@ -59,7 +64,7 @@ const CategoryHeaderSection = () => {
             borderRadius: 25,
             marginLeft: SIZES.base,
           }}
-          onPress={() => setViewMode("list")}
+          onPress={() => setCategoriesModeView("list")}
         >
           <Image
             source={icons.menu}
